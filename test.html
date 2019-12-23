@@ -21,8 +21,8 @@
             var resolved1 = false;
             var resolved2 = false;
             var i = 0;
-            alertSuccess(){
-                if (resolved1 && resolved2) {
+            function alertSuccess(){
+                if (resolved1 && resolved2 && i==2) {
                     alert('恭喜您，已经修复！！！')
                 }else if(i==2){
                     alert('对不起，项目没有修复，请尽快联系程序员!!!!');
