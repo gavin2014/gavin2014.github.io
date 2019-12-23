@@ -36,6 +36,7 @@
                 resolved2 = false;
                 i = 0;
                 $.ajax({url: url+'/pc_sign.php?s=admin/sign/fetch', method:'post', success:function(result){
+                    i++;
                     //alert('对不起，项目没有修复，请尽快联系程序员!!!!');
                 }, error: function (XMLHttpRequest, textStatus, errorThrown) {
                     // 状态码  
@@ -44,11 +45,12 @@
                     console.log(XMLHttpRequest.readyState);  
                     // 错误信息     
                     console.log(textStatus);  
-                    resolved1 = true
+                    resolved1 = true;
                     i++;
                     alertSuccess();
                 }});
                 $.ajax({url: url+'/index.php?s=admin/sign/fetch', method:'post', success:function(result){
+                    i++;
                     //alert('对不起，项目没有修复，请尽快联系程序员!!!!');
                 }, error: function (XMLHttpRequest, textStatus, errorThrown) {
                     // 状态码  
@@ -57,7 +59,7 @@
                     console.log(XMLHttpRequest.readyState);  
                     // 错误信息     
                     console.log(textStatus);  
-                    resolved2 = true
+                    resolved2 = true;
                     i++;
                     alertSuccess();
                 }});
