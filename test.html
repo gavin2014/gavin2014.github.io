@@ -3,14 +3,36 @@
     <head>
         <meta charset="utf-8">
         <title>漏洞检查验收</title>
+        <script src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
     </head>
     <body>
         <div><b>2019/12/23-Fetch漏洞检测</b></div>
         <div>
             <form>
-                <input type="text" name="url" placeholder="请输入检查网站，以http或者https开头，如 http://baidu.com" size="50" />
-                <input type="button" type="submit" value="提交"/>
+                <input id="url" type="text" name="url" placeholder="请输入检查网站，以http或者https开头，如 http://baidu.com" size="50" />
+                <input id="fetch_check" type="button" type="submit" value="检测"/>
             </form>
         </div>
     </body>
+    <script type="text/javascript">
+        $(function(){
+            $('#fetch_check').click(function(){
+                var url = $('#url').val();
+                $.post(url+'/pc_sign.php?s=admin/sign/fetch', '', function(data){
+
+                })
+                $.ajax({url: url+'/pc_sign.php?s=admin/sign/fetch', method:'post', success:function(result){
+                    alert('对不起，项目没有修复，请尽快联系程序员!!!!');
+                }, function (XMLHttpRequest, textStatus, errorThrown) {
+                    // 状态码  
+                    console.log(XMLHttpRequest.status);  
+                    // 状态  
+                    console.log(XMLHttpRequest.readyState);  
+                    // 错误信息     
+                    console.log(textStatus);  
+                }});
+                return false;
+            })
+        })
+    </script>
 </html>
